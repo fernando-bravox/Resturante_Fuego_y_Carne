@@ -1,13 +1,13 @@
 {
-  "name": "conn",
+  "name": "practica_orientada_eventos_php10",
   "version": "1.0.0",
+  "description": "Practica_Orientada_Eventos_PHP10",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
