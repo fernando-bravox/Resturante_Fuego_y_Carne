@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Comidas</title>
+    <!-- Incluir Tailwind CSS -->
+    <link rel="stylesheet" href="css/tailwind.css"> <!-- Asegúrate de que este enlace apunte correctamente a Tailwind CSS -->
+</head>
+
+<body class="bg-center bg-cover" style="background-image: url('img/fondo.jpg'); background-size: 40%; background-position: center;">
+    <!-- Barra de navegación -->
+    <nav class="bg-[#dfded9] shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-12 w-auto rounded-full border-2 border-[#ed2839]" src="img/logo.jpg" alt="Logo">
+                        <h1 class="text-3xl font-bold text-[#191d20] text-center ml-4" &nbsp>  Carne al Fuego</h1>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="registro.html" class="inline-flex items-center">
+                        <img src="img/logo2.png" alt="Registrar Usuario" class="h-12 w-auto rounded-full border-2 border-[#ed2839]">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+        <div class="bg-[#000000de] overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="p-6 sm:px-20 bg-[#dfded9] border-b border-gray-200">
+                <div>
+                    <h2 class="text-4xl font-bold text-[#191d20]">Bienvenido a la Gestión de Comidas</h2>
+                    <p class="mt-4 text-lg text-[#191d20]">Aquí puedes administrar categorías, platos y empleados de tu restaurante.</p>
+                </div>
+            </div>
+
+            <!-- Más contenido aquí según sea necesario -->
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Tarjeta de Registrar Categoría -->
+                    <a href="registro_categoria.html" class="block bg-[#dfded9] hover:bg-[#ed2839] text-[#191d20] hover:text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold">Registrar Categoría</h3>
+                        <p class="mt-2">Añade nuevas categorías a tu restaurante.</p>
+                    </a>
+                                        <!-- Tarjeta de Ver Categorías -->
+                    <a href="./php/ver_categorias.php" class="block bg-[#dfded9] hover:bg-[#ed2839] text-[#191d20] hover:text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold">Ver Categorías</h3>
+                        <p class="mt-2">Consulta las categorías registradas.</p>
+                    </a>
+                    <!-- Tarjeta de Registrar Plato -->
+                    <a href="registro_producto.php" class="block bg-[#dfded9] hover:bg-[#ed2839] text-[#191d20] hover:text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold">Registrar Producto</h3>
+                        <p class="mt-2">Añade nuevos platos al menú.</p>
+                    </a>
+                    <!-- Tarjeta de Registrar Empleado -->
+                    <a href="./php/ver_productos.php" class="block bg-[#dfded9] hover:bg-[#ed2839] text-[#191d20] hover:text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold">Ver Producto</h3>
+                        <p class="mt-2">Añade nuevos platos al menu.</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

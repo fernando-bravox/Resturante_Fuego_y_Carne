@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link href="css/tailwind.css" rel="stylesheet">
+    <script defer src="./js/registro.js"></script>
+    <script defer src="./js/error_registro.js"></script> <!-- Script añadido -->
+</head>
+<body class="bg-center bg-cover min-h-full" style="background-image: url('img/fondo.jpg'); background-size: 40%; background-position: center;">
+    <!-- Barra de navegación -->
+    <nav class="text-black font-bold shadow-md bg-[#dfded9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-12 w-auto rounded-full border-2 border-[#ed2839]" src="img/logo.jpg" alt="Logo">
+                        <h1 class="text-3xl font-bold text-[#191d20] text-center ml-4">Carne al Fuego</h1>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="inicio_sesion.php" class="inline-flex items-center">
+                        <img src="img/logo2.png" alt="Registrar Usuario" class="h-12 w-auto rounded-full border-2 border-[#ed2839]">Inicio de Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="max-w-md bg-white rounded-lg overflow-hidden shadow-md mx-auto">
+            <h2 class="text-2xl font-bold text-center p-4 bg-[#191d20] text-white">Registro de Nuevo Usuario</h2>
+            <!-- Mostrar mensajes de error y éxito si existen -->
+            <div id="mensaje" class="p-4 bg-[#dfded9] border-b border-gray-200"></div>
+            <div id="errorMessage" class="text-red-500 text-center"></div>
+            <div id="successMessage" class="text-green-500 text-center"></div>
+            <form id="registroForm" action="./php/registro.php" method="POST" class="p-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="mb-4">
+                        <label for="firstName" class="block text-[#191d20] font-bold mb-2">Nombre:</label>
+                        <input type="text" id="firstName" name="firstName" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required pattern="[a-zA-ZñÑ\s]+" oninput="validateInput(this)">
+                        <span id="firstNameError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="lastName" class="block text-[#191d20] font-bold mb-2">Apellido:</label>
+                        <input type="text" id="lastName" name="lastName" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required pattern="[a-zA-ZñÑ\s]+" oninput="validateInput(this)">
+                        <span id="lastNameError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-[#191d20] font-bold mb-2">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required oninput="validateInput(this)">
+                        <span id="emailError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-[#191d20] font-bold mb-2">Contraseña:</label>
+                        <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" oninput="validateInput(this)">
+                        <span id="passwordError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="telefono" class="block text-[#191d20] font-bold mb-2">Teléfono:</label>
+                        <input type="text" id="telefono" name="telefono" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required pattern="\d{10}" oninput="validateInput(this)">
+                        <span id="telefonoError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="cedula" class="block text-[#191d20] font-bold mb-2">Número de Cédula:</label>
+                        <input type="text" id="cedula" name="cedula" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required pattern="\d{10}" oninput="validateInput(this)">
+                        <span id="cedulaError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="perfil" class="block text-[#191d20] font-bold mb-2">Perfil:</label>
+                        <select id="perfil" name="perfil" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <option value="">Selecciona un perfil</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Cliente">Cliente</option>
+                           
+                            
+                        </select>
+                        
+                        <span id="perfilError" class="text-red-500 text-sm"></span>
+                    </div>
+                    <div class="mb-4" id="codigoRegistro">
+                        <label for="codigo" class="block text-[#191d20] font-bold mb-2">Código de Registro:</label>
+                        <input type="text" id="codigo" name="codigo" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" pattern="[a-zA-Z0-9]{1,8}">
+                        <span id="codigoError" class="text-red-500 text-sm"></span>
+                    </div>
+                    
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="px-4 py-2 bg-[#ed2839] text-black rounded-lg font-bold cursor-pointer hover:bg-[#642226]">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> <!-- Incluir SweetAlert -->
+    <script>
+        function showAlert(message) {
+            Swal.fire({
+                title: 'Estado del Registro',
+                text: message,
+                icon: message.includes('exitosamente') ? 'success' : 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener el mensaje de estado de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            
+            if (status) {
+                showAlert(decodeURIComponent(status));
+            }
+        });
+    </script>
+</body>
+</html>
